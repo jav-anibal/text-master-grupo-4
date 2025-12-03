@@ -1,0 +1,35 @@
+{
+  "name": "textmaster-api",
+  "version": "1.0.0",
+  "description": "API REST para análisis y manipulación de texto",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jav-anibal/text-master-grupo-4.git"
+  },
+  "keywords": [
+    "api",
+    "text",
+    "express"
+  ],
+  "author": "Grupo 4 - Anibal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jav-anibal/text-master-grupo-4/issues"
+  },
+  "homepage": "https://github.com/jav-anibal/text-master-grupo-4#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.1.4"
+  }
+}
