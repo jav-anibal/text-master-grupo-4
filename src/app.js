@@ -1,15 +1,18 @@
 const express = require('express');
 const morgan = require('morgan');
 
+// Importar rutas
+const homeRoutes = require('./routes/home.routes');
+const healthRoutes = require('./routes/health.routes');
+
 const app = express();
 
 // Middleware
 app.use(morgan('combined'));
 app.use(express.json());
 
-// Ruta temporal para verificar que funciona
-app.get('/', (req, res) => {
-  res.json({ message: 'TextMaster API - Grupo - 4 - JoseAlberto - Lolo - Daniel - Anibal' });
-});
+// Rutas
+app.use('/', homeRoutes);
+app.use('/health', healthRoutes);
 
 module.exports = app;
