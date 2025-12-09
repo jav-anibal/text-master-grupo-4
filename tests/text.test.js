@@ -47,4 +47,37 @@ describe('Utilidades de Texto', () => {
             expect(() => analyzeText(123)).toThrow(TypeError);
         });
     });
+    
+    describe('transformText', () => {
+  it('debería convertir a mayúsculas', () => {
+    expect(transformText('hola', 'upper')).toBe('HOLA');
+  });
+
+  it('debería convertir a minúsculas', () => {
+    expect(transformText('HOLA', 'lower')).toBe('hola');
+  });
+
+  it('debería manejar acción en cualquier capitalización', () => {
+    expect(transformText('test', 'UPPER')).toBe('TEST');
+    expect(transformText('TEST', 'Lower')).toBe('test');
+  });
+
+  it('debería lanzar error si falta acción', () => {
+    expect(() => transformText('hola', '')).toThrow('Se requiere especificar una acción');
+  });
+
+  it('debería lanzar error con acción inválida', () => {
+    expect(() => transformText('hola', 'invalid')).toThrow('Acción inválida');
+  });
+
+  it('debería lanzar error si text no es string', () => {
+    expect(() => transformText(123, 'upper')).toThrow(TypeError);
+  });
+
+  it('debería transformar texto con espacios y caracteres especiales', () => {
+    expect(transformText('Hola Mundo!', 'upper')).toBe('HOLA MUNDO!');
+    expect(transformText('HOLA MUNDO!', 'lower')).toBe('hola mundo!');
+  });
+});
+
 });
