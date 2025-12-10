@@ -1,7 +1,8 @@
+// Importar módulos necesarios
 const express = require('express');
-const morgan = require('morgan');
+const morgan = require('morgan'); // Para ver los logs de las peticiones HTTP
 
-// Importar rutas
+// Importar las rutas de los diferentes endpoints
 const homeRoutes = require('./routes/home.routes');
 const healthRoutes = require('./routes/health.routes');
 const reverseRoutes = require('./routes/reverse.routes');
@@ -10,11 +11,11 @@ const transformRoutes = require('./routes/transform.routes');
 
 const app = express();
 
-// Middleware
-app.use(morgan('combined'));
-app.use(express.json());
+// Middleware para logging y parseo de JSON
+app.use(morgan('combined')); // Muestra info de cada petición en la consola
+app.use(express.json()); // Para poder recibir JSON en las peticiones
 
-// Rutas
+// Configurar las rutas de la API
 app.use('/', homeRoutes);
 app.use('/health', healthRoutes);
 app.use('/reverse', reverseRoutes);

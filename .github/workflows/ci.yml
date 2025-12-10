@@ -1,0 +1,29 @@
+name: Integración Continua (CI)
+
+on:
+  # Se activa en Pull Requests (para revisión de código)
+  pull_request:
+    branches: [ main ]
+  # Se activa en Pushes a la rama principal (antes de empezar el CD)
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+        
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Instalar dependencias
+        run: npm ci
+        
+      - name: Ejecutar tests
+        run: npm test
