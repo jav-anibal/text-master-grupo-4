@@ -17,7 +17,7 @@
     "text",
     "express"
   ],
-  "author": "Grupo 4 - Anibal",
+  "author": "Grupo 4",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jav-anibal/text-master-grupo-4/issues"
@@ -31,5 +31,12 @@
     "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "supertest": "^7.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
   }
 }
