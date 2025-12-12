@@ -31,8 +31,38 @@ function analyzeText(text) {
         has_numbers
     };
 }
+/**
+ * Transforma texto según la acción especificada
+ * @param {string} text - Texto a transformar
+ * @param {string} action - Acción: 'upper' o 'lower'
+ * @returns {string} Texto transformado
+ */
+function transformText(text, action) {
+  if (typeof text !== 'string') {
+    throw new TypeError('El parámetro text debe ser una cadena');
+  }
+
+  if (!action) {
+    throw new Error('Se requiere especificar una acción');
+  }
+
+  const validActions = ['upper', 'lower'];
+  if (!validActions.includes(action.toLowerCase())) {
+    throw new Error(`Acción inválida. Acciones válidas: ${validActions.join(', ')}`);
+  }
+
+  switch (action.toLowerCase()) {
+    case 'upper':
+      return text.toUpperCase();
+    case 'lower':
+      return text.toLowerCase();
+    default:
+      throw new Error('Acción no implementada');
+  }
+}
 
 module.exports = {
-    reverseText,
-    analyzeText
+  reverseText,
+  analyzeText,
+  transformText
 };
