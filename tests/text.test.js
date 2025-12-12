@@ -1,4 +1,4 @@
-const { reverseText, analyzeText } = require('../src/utils/textUtils');
+const { reverseText, analyzeText, transformText } = require('../src/utils/textUtils');
 
 describe('Utilidades de Texto', () => {
 
